@@ -1,0 +1,79 @@
+:root{
+    --text-color-initial: blue;
+    --text-color-final: red;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+aside {
+    float: right;
+    width: 30%;
+}
+
+footer {
+    /* Specyfikacja wyglądu */
+}
+
+header {
+    
+}
+
+main {
+    width: fit-content;
+}
+
+nav {
+    width: fit-content;
+    padding: 5rem;
+}
+
+nav ul {
+    margin-left: 1rem;
+}
+
+nav li {
+    /* Specyfikacja wyglądu */
+}
+
+.azure {
+    background-color: #EFF;
+    border: black 1px solid;
+    box-shadow: 0 0 5px black;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+h1 {
+    color: blue;
+    animation: change-color 2s alternate;
+    animation-iteration-count: 2;
+}
+
+@keyframes change-color {
+    0% {
+        color: var(--text-color-initial);
+    }
+
+    100% {
+        color: var(--text-color-final);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    aside {
+        float: none;
+        width: auto;
+    }
+
+    main, nav {
+        width: auto;
+    }
+}
