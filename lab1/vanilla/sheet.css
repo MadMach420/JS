@@ -32,11 +32,7 @@ nav {
 }
 
 nav ul {
-    margin-left: 1rem;
-}
-
-nav li {
-    /* Specyfikacja wyglądu */
+    margin: 0 25px;
 }
 
 .azure {
@@ -51,10 +47,11 @@ ul {
     list-style-position: inside;
 }
 
-h1 {
+.header-animated {
     color: blue;
     animation: change-color 2s alternate;
-    animation-iteration-count: 2;
+    /* animation-iteration-count: 2; */
+    animation-iteration-count: infinite;
 }
 
 @keyframes change-color {
