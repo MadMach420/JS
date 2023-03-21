@@ -1,0 +1,26 @@
+<html>
+  <body onLoad="
+            console.log('Tekst 1');
+          ">
+    <div>Treść dokumentu HTML</div>
+    <div>Treść dokumentu HTML</div>
+    <div>Treść dokumentu HTML</div>
+
+    <form oninput="wynik.value = pole_tekstowe.value + pole_liczbowe.value">
+      <input id="pole_tekstowe" placeholder="Wprowadź tekst" type="text">
+      +
+      <input id="pole_liczbowe" type="number" placeholder="Wprowadź liczbę">    
+      =
+      <output name="wynik" for="pole_tekstowe pole_liczbowe">Tu pojawi się wynik obliczeń</output>    
+      <br>    
+      <input type="button" value="Wypisz" onclick="
+        let text = document.forms[0].elements[0].value;
+        let number = document.forms[0].elements[1].value;
+        console.log(text + ': ' + typeof text);
+        console.log(number + ': ' + typeof number);
+      ">
+    </form>
+
+    <script src="./zadanie1.js"></script>
+  </body>
+</html>
