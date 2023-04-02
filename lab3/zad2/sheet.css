@@ -1,0 +1,64 @@
+:root{
+    --text-color-initial: blue;
+    --text-color-final: red;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.aside-styling {
+    float: right;
+    width: 30%;
+}
+
+.main-styling {
+    width: fit-content;
+}
+
+.nav-styling {
+    width: fit-content;
+    padding: 5rem;
+}
+
+.azure-styling {
+    background-color: #EFF;
+    border: black 1px solid;
+    box-shadow: 0 0 5px black;
+    margin: 1rem;
+    padding: 0.5rem;
+}
+
+.ul-styling {
+    list-style-position: inside;
+}
+
+.header-animation {
+    color: blue;
+    animation: change-color 2s alternate;
+    /* animation-iteration-count: 2; */
+    animation-iteration-count: infinite;
+}
+
+@keyframes change-color {
+    0% {
+        color: var(--text-color-initial);
+    }
+
+    100% {
+        color: var(--text-color-final);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    aside {
+        float: none;
+        width: auto;
+    }
+
+    main, nav {
+        width: auto;
+    }
+}
