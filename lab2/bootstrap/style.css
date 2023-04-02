@@ -41,6 +41,22 @@ img {
     animation: rotation 8s ease-out infinite;
 }
 
+.form-container {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+#text-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 
 @keyframes rotation {
     0% {
