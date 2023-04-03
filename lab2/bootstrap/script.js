@@ -194,6 +194,7 @@ function parseLine(line) {
             break;
     
         default:
+            console.error("Invalid command!");
             break;
     }
 
