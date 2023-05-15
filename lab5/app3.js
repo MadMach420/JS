@@ -2,6 +2,7 @@ import express from 'express';
 import morgan from 'morgan';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { MongoClient } from 'mongodb';
 
 /* *************************** */
 /* Configuring the application */
@@ -9,16 +10,6 @@ import { fileURLToPath } from 'url';
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-let students = [
-    {
-        fname: 'Jan',
-        lname: 'Kowalski'
-    },
-    {
-        fname: 'Anna',
-        lname: 'Nowak'
-    },
-];
 
 app.set('views', __dirname + '/views'); // Files with views can be found in the 'views' directory
 app.set('view engine', 'pug'); // Use the 'Pug' template system
@@ -34,8 +25,15 @@ app.use(express.static(__dirname + '/public'));
 /* "Routes" */
 /* ******** */
 
-app.get('/', function (request, response) {
-    response.render('index', { students: students }); // Render the 'index' view
+app.get('*', async (request, response) => {
+    const wydzial = request.originalUrl.slice(1);
+
+    const client = new MongoClient('mongodb://127.0.0.1:27017');
+    await client.connect();
+    const collection = client.db('AGH').collection('students');
+    const students = await collection.find({ wydzial: wydzial }).toArray();
+
+    response.render('index', { students: students, mongo: true }); // Render the 'index' view
 });
 
 
