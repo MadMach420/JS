@@ -18,7 +18,11 @@ html(lang='en')
                 tr
                     th Nazwisko
                     th Imie
+                    if mongo
+                        th Wydzial
                 each student in students
                     tr
-                        td= student.lname
-                        td= student.fname
+                        td= student.nazwisko
+                        td= student.imie
+                        if mongo
+                            td= student.wydzial
