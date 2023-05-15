@@ -9,16 +9,6 @@ import { fileURLToPath } from 'url';
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-let students = [
-    {
-        fname: 'Jan',
-        lname: 'Kowalski'
-    },
-    {
-        fname: 'Anna',
-        lname: 'Nowak'
-    },
-];
 
 app.set('views', __dirname + '/views'); // Files with views can be found in the 'views' directory
 app.set('view engine', 'pug'); // Use the 'Pug' template system
@@ -35,6 +25,16 @@ app.use(express.static(__dirname + '/public'));
 /* ******** */
 
 app.get('/', function (request, response) {
+    const students = [
+        {
+            imie: 'Jan',
+            nazwisko: 'Kowalski'
+        },
+        {
+            imie: 'Anna',
+            nazwisko: 'Nowak'
+        },
+    ];
     response.render('index', { students: students }); // Render the 'index' view
 });
 
