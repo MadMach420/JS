@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin=""></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin=""></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+    <title>
+        Tytuł strony / Page tile
+    </title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="bi bi-shop"></i> Shop</a>
+            <canvas id="canvas" width="50" height="50" style="border:1px solid #000000;">
+                Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas"
+            </canvas>
+            <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav" id="navbar-nav-ul">
+                    <!-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Komputery
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item" id="pc">PC</li>
+                            <li class="dropdown-item" id="laptops">Laptopy</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Akcesoria
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item" id="mice">Myszki</li>
+                            <li class="dropdown-item" id="keyboards">Klawiatury</li>
+                        </ul>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="root"></div>
+
+    <div class="form-container">
+        <h3>Commands</h3>
+        <div>
+            <p>add [name] [type] [subtype] [photoUrl] [price] [description]</p>
+            <p>add [name] [quantity]</p>
+            <p>sell [first name] [last name] [product name]</p>
+            <p>sales_breakdown</p>
+        </div>
+        <form id="text-form">
+            <textarea id="text-area" cols="30" rows="10"></textarea>
+            <button id="text-button">Send</button>
+        </form>
+        <canvas id="chart">
+            Wygląda na to, że twoja przeglądarka nie obsługuje elementu "canvas"
+        </canvas>
+    </div>
+
+    <div class="form-container">
+        <form class="new-product">
+            <label>Name</label>
+            <input type="text" id="name">
+            <label>Type</label>
+            <select id="type"></select>
+            <label>Subtype</label>
+            <input type="text" id="subtype">
+            <label>Photo URL</label>
+            <input type="text" id="photoUrl">
+            <label>Price</label>
+            <input type="number" id="price">
+            <textarea id="description" cols="30" rows="10" placeholder="description"></textarea>
+        </form>
+        <button id="send-form">Submit</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script>
+        "use strict"; // Nie wyłączaj trybu ścisłego    
+        var canvas = document.getElementById('canvas');
+        var ctx = canvas.getContext('2d');
+
+        ctx.fillStyle = "white";
+        ctx.fillRect(15, 10, 22, 13);
+        ctx.fillRect(14, 24, 23, 5);
+        ctx.beginPath();
+        ctx.ellipse(40, 26, 1.2, 2, 0, 0, 2 * Math.PI);
+        ctx.fill();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/babel" src="./classes/react_components.js"></script>
+    <script src="./classes/product.js"></script>
+    <script src="./db_api.js"></script>
+    <script src="./new_product_form.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>
+
+</html>
