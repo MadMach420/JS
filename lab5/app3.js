@@ -25,8 +25,8 @@ app.use(express.static(__dirname + '/public'));
 /* "Routes" */
 /* ******** */
 
-app.get('*', async (request, response) => {
-    const wydzial = request.originalUrl.slice(1);
+app.get('/:route(*)', async (request, response) => {
+    const wydzial = request.params.route;
 
     const client = new MongoClient('mongodb://127.0.0.1:27017');
     await client.connect();
