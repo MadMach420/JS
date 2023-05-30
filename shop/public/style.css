@@ -9,9 +9,9 @@ img {
     height: auto;
 }
 
-.animate:hover {
+/* .animate:hover {
     animation: rotation 8s ease-out infinite;
-}
+} */
 
 .form-container {
     width: 100%;
