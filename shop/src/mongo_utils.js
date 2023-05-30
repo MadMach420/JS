@@ -7,19 +7,21 @@ await client.connect();
 export async function addProduct(newProduct) {
     const collection = client.db('shop').collection('products');
     collection.insertOne(newProduct);
+    return 200;
 }
 
 
 export async function updateProduct(name, quantity) {
     const collection = client.db('shop').collection('products');
-    const products = await collection.find({ name: name }).toArray();
+    const products = await collection.find({ 'name': name }).toArray();
 
     if (products.length != 1) {
         return 400;
     }
 
     const product = products[0];
-    product.quantity = Math.max(0, product.quantity + quantity);
+    product.quantity = Math.max(0, parseInt(product.quantity) + parseInt(quantity));
+    
     collection.replaceOne({ _id: product._id }, product);
     return 200;
 }
@@ -43,8 +45,10 @@ export async function sellProduct(personName, productName) {
         return 400;
     }
     const person = people[0];
+
     person.products.push(product);
     peopleCollection.replaceOne({ _id: person._id }, person);
+    return 200;
 }
 
 
@@ -58,6 +62,7 @@ export async function getProducts() {
         }
         types[elem.type].push(elem.subtype);
     });
+
     return { data: products, types: types };
 }
 
