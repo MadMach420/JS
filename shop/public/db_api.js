@@ -1,17 +1,17 @@
 function postNewProduct(newProduct) {
     console.log(newProduct);
-    fetch(`${document.URL}new`, {
+    fetch(`${window.location.href}/new`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(newProduct)
+        body: JSON.stringify({ product: newProduct })
     });
 }
 
 
 function updateProduct(name, quantity) {
-    fetch(`${document.URL}update`, {
+    fetch(`${window.location.href}/update`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -22,7 +22,7 @@ function updateProduct(name, quantity) {
 
 
 function sell(personName, productName) {
-    fetch(`${document.URL}sell`, {
+    fetch(`${window.location.href}/buy`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -33,10 +33,11 @@ function sell(personName, productName) {
 
 
 async function getProducts() {
-    return (await fetch(`${document.URL}data`)).json();
+    // return (await fetch(`http://${window.location.host}/data`)).json();
+    return (await fetch(`${window.location.href}/data`)).json();
 }
 
 
 async function getPeople() {
-    return (await fetch(`${document.URL}people`)).json();
+    return (await fetch(`${window.location.href}/people`)).json();
 }

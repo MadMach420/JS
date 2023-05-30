@@ -8,19 +8,6 @@ const sendProduct = document.querySelector("#send-form");
 const formInputs = [newName, newType, newSubtype, newPhotoUrl, newPrice, newDescription];
 
 
-function selectTypes(types) {
-    while (newType.firstChild) newType.removeChild(ul.lastChild);
-
-    for (const [type, _] of Object.entries(types)) {
-        const option = document.createElement("option");
-        option.value = type;
-        const text = document.createTextNode(type);
-        option.appendChild(text);
-        newType.appendChild(option);
-    }
-}
-
-
 sendProduct.addEventListener("click", (e) => {
     e.preventDefault();
 
