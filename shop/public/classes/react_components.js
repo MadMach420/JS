@@ -1,4 +1,19 @@
 class Device extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.sellProduct = this.sellProduct.bind(this);
+    }
+
+
+    sellProduct() {
+        const personName = document.querySelector("#name").value;
+        if (personName){
+            sell(personName, this.props.device.name);
+        }
+    }
+
+    
     render() {
         return (
             <div className="col-md-4">
@@ -13,6 +28,9 @@ class Device extends React.Component {
                         <li className="list-group-item">{ this.props.device.quantity } available</li>
                         <li className="list-group-item">Price: { this.props.device.price }</li>
                     </ul>
+                    <button onClick={this.sellProduct} className="btn btn-primary">
+                            Buy
+                    </button>
                 </div>
             </div>
         )
