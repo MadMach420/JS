@@ -1,3 +1,5 @@
+const cart = document.querySelector("#cart");
+const nameInput = document.querySelector("#name");
 let currentFilter = null;
 
 
@@ -57,3 +59,21 @@ function setNewFilter(newFilter) {
 
     window.dispatchEvent(new CustomEvent("setFilter", { detail: currentFilter }));
 }
+
+
+cart.addEventListener("dragover", (ev) => {
+    ev.preventDefault();
+    ev.dataTransfer.dropEffect = "copy";
+});
+
+
+cart.addEventListener("drop", (ev) => {
+    ev.preventDefault();
+    
+    const product = JSON.parse(ev.dataTransfer.getData("application/json"));
+    
+    const personName = nameInput.value;
+    if (personName){
+        sell(personName, product.name);
+    }
+});

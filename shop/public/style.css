@@ -13,6 +13,14 @@ img {
     animation: rotation 8s ease-out infinite;
 } */
 
+.sold-out {
+    box-shadow: 0 0 10px 5px red;
+}
+
+.cart-div {
+    width: 200px;
+}
+
 .form-container {
     width: 100%;
     padding: 2rem;

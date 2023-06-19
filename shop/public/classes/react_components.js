@@ -3,6 +3,7 @@ class Device extends React.Component {
         super(props);
 
         this.sellProduct = this.sellProduct.bind(this);
+        this.dragstartHandler = this.dragstartHandler.bind(this);
     }
 
 
@@ -13,11 +14,19 @@ class Device extends React.Component {
         }
     }
 
+
+    dragstartHandler(event) {
+        event.dataTransfer.setData("application/json", JSON.stringify(this.props.device));
+        console.log("drag");
+    }
+
     
     render() {
         return (
             <div className="col-md-4">
-                <div className="card animate">
+                <div    onDragStart={this.dragstartHandler}
+                        draggable="true"
+                        className={`card animate ${ this.props.device.quantity > 0 ? "" : "sold-out" }`}>
                     <img className="card-img-top" src={this.props.device.photoUrl} alt="Card image cap" />
                     <div className="card-body">
                         <h4 className="card-title">{ this.props.device.name }</h4>
