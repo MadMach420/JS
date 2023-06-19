@@ -1,0 +1,27 @@
+{
+    "customers": [
+        {
+            "name": "Krzysztof Mach",
+            "products": [
+                {
+                    "name": "Test",
+                    "type": "Komputery",
+                    "subtype": "PC",
+                    "photoUrl": "https://www.pcspecialist.pl/images/cases/19050/h.png?1680778249",
+                    "price": 4000,
+                    "description": "Test",
+                    "quantity": 9
+                },
+                {
+                    "name": "Test",
+                    "type": "Komputery",
+                    "subtype": "PC",
+                    "photoUrl": "https://www.pcspecialist.pl/images/cases/19050/h.png?1680778249",
+                    "price": 4000,
+                    "description": "Test",
+                    "quantity": 8
+                }
+            ]
+        }
+    ]
+}
